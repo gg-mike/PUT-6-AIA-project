@@ -1,0 +1,21 @@
+.Navbar-action {
+  margin-left: 1em;
+}
+
+.Page-controls {
+  margin-right: 1em;
+}
+
+.Page-controls button {
+  width: 8em;
+}
+
+.Content {
+  padding: 2em;
+  flex: auto;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  align-items: stretch;
+}

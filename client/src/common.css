@@ -1,0 +1,64 @@
+.fc {
+  display: flex;
+  flex-direction: column;
+}
+
+.fr {
+  display: flex;
+  flex-direction: row;
+}
+
+.p-j {
+  text-align: justify;
+}
+
+.p-c {
+  text-align: center;
+}
+
+.btn-solid {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  color: white;
+  background-color: var(--primary-lld);
+  border-radius: 0.5em;
+}
+
+.btn-solid:hover {
+  background-color: var(--primary-ld);
+}
+
+.btn-solid:active {
+  background-color: var(--primary-md);
+}
+
+.btn-solid:disabled {
+  opacity: 0.5;
+}
+
+.btn-thin {
+  cursor: pointer;
+  color: var(--primary-lld);
+  background: none;
+  border: none;
+}
+
+.btn-thin:hover {
+  color: var(--primary-ld);
+}
+
+.btn-thin:active {
+  color: var(--primary-md);
+}
+
+.btn-l {
+  border-radius: 0.5em 0 0 0.5em;
+}
+
+.btn-c {
+  border-radius: 0;
+}
+
+.btn-r {
+  border-radius: 0 0.5em 0.5em 0;
+}

@@ -1,0 +1,15 @@
+.Navbar {
+  align-items: center;
+  flex: 0 0 10%;
+  background-color: var(--primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  flex-wrap: wrap;
+  padding: 1em;
+  color: white;
+}
+
+.Navbar-title {
+  text-decoration: none;
+  color: white;
+  margin-right: auto;
+}

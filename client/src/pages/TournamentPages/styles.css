@@ -1,0 +1,87 @@
+.blur {
+  filter: blur(5px) grayscale(90%);
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.Popup {
+  position: absolute;
+  width: 40%;
+  height: fit-content;
+  left: 30%;
+  top: 15%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 0.5em;
+  padding: 0.5em;
+  opacity: 1;
+  background-color: white;
+  z-index: 10;
+}
+
+.Popup-controls {
+  width: 100%;
+  gap: 0.5em;
+}
+
+.Popup-controls > button {
+  width: 50%;
+}
+
+.Single-controls button {
+  margin-inline: 0.5em;
+}
+
+.Single-content > div {
+  width: 100%;
+}
+
+.Single-content > div > * {
+  margin-bottom: 2em;
+}
+
+.Single-part {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 0.5em;
+  padding: 0.5em;
+}
+
+.Single-info > * {
+  width: 100%;
+}
+
+.Single-info-main {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Single-info-main > div {
+  align-items: center;
+}
+
+.Single-info-main > div > * {
+  padding-inline: 1em;
+}
+
+.Single-details {
+  justify-content: space-around;
+}
+
+.Single-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Single-date {
+  color: var(--primary-lld);
+}
+
+.Single-sponsors {
+  align-items: center;
+}
+
+.Single-sponsors img {
+  max-height: 20em;
+}

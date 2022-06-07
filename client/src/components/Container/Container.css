@@ -1,0 +1,67 @@
+:scope {
+  --pos: calc(50% - 15em);
+  --dim: 30em;
+}
+
+.Container {
+  height: 100%;
+  padding: 0.5em;
+  background-image: linear-gradient(to bottom right, white, var(--primary));
+}
+
+.Container-back > button {
+  font-size: 1em;
+}
+
+.Container-back > button > span {
+  margin-left: 0.25em;
+}
+
+.Container-content {
+  background-color: white;
+  position: fixed;
+  top: var(--pos);
+  left: var(--pos);
+  width: var(--dim);
+  height: fit-content;
+  padding: 1em;
+  border-radius: 1em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.Container-title {
+  padding: 0.5em;
+  color: var(--primary);
+  text-align: center;
+}
+
+.Container-content-back > button {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.Container-controls {
+  display: flex;
+  gap: 0.5em;
+  width: 100%;
+}
+
+.Container-controls > * {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.Container-link {
+  font-size: 0.8em;
+  padding-inline: 1em;
+  text-align: right;
+  text-decoration: "underline";
+  width: 100%;
+}
+
+.Container-load {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

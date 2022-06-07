@@ -1,0 +1,36 @@
+.Dropdown {
+  position: relative;
+}
+
+.Dropdown:hover .Dropdown-list {
+  opacity: 1;
+  visibility: visible;
+}
+
+.Dropdown-list {
+  position: absolute;
+  right: 0;
+  width: min-content;
+  opacity: 0;
+  visibility: hidden;
+  background-color: var(--primary-lld);
+  border-radius: 0.5em;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+  transform: translateY(0.25em);
+}
+
+.Dropdown-list::before {
+  content: "";
+  width: 100%;
+  height: 0.25em;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+}
+
+.Dropdown-list > * {
+  width: 100%;
+  position: relative;
+}

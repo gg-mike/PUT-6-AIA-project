@@ -1,0 +1,27 @@
+[
+  {
+    "key": "confirmation",
+    "info": "Account was confirmed",
+    "className": "p-c",
+    "navAction": "/sign-in",
+    "actionName": "SIGN IN"
+  },
+  {
+    "key": "creation",
+    "info": "Tournament was created",
+    "className": "p-c"
+  },
+  {
+    "key": "edit",
+    "info": "Tournament was updated",
+    "className": "p-c"
+  },
+  {
+    "key": "forgot-password",
+    "info": "Check your email for the reset link to change your password. The link will be active for 1h."
+  },
+  {
+    "key": "registration",
+    "info": "Thank you for joining Online tournaments!\n\nCheck your email for the confirmation link to activate your account. The link will be active for 24h."
+  }
+]

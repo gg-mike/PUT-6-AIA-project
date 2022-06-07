@@ -1,0 +1,41 @@
+.Form {
+  padding: 1em;
+  display: grid;
+  align-items: center;
+}
+
+.Form button {
+  font-size: 1em;
+}
+
+#submit {
+  grid-column: 1 / -1;
+}
+
+#submit:disabled {
+  opacity: 0.5;
+}
+
+.c1 {
+  grid-column: 1;
+}
+
+.c2 {
+  grid-column: span 2;
+}
+
+.c3 {
+  grid-column: span 3;
+}
+
+.c4 {
+  grid-column: span 4;
+}
+
+.c5 {
+  grid-column: span 5;
+}
+
+.c6 {
+  grid-column: span 6;
+}

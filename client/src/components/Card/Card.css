@@ -1,0 +1,72 @@
+@media only screen and (max-width: 1023px) {
+  .Card {
+    width: calc(50% - 1em);
+  }
+}
+
+@media only screen and (min-width: 1023px) {
+  .Card {
+    width: calc(25% - 1em);
+  }
+}
+
+.Card {
+  max-height: 300px;
+  border-radius: 0.5em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  position: relative;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.Card * {
+  cursor: inherit;
+}
+
+.Card-info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5em;
+  text-align: center;
+  padding: 0.25em;
+  opacity: 0.75;
+  color: white;
+  border-top-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+}
+
+.Card h2 {
+  padding: 1em;
+  text-align: center;
+}
+
+.Card table {
+  width: 100%;
+}
+
+.Card tbody td {
+  padding: 0.25em;
+}
+
+.Card tbody tr:first-child td {
+  padding-bottom: 1em;
+  color: var(--primary-lld);
+}
+
+.Card td {
+  width: 50%;
+}
+
+.Card tbody tr:first-child > td,
+.Card tbody :not(tr:first-child) td:nth-child(2) {
+  text-align: center;
+}
+
+.Card tbody :not(tr:first-child) td:nth-child(2) {
+  color: var(--primary-lld);
+}
+
+.Card tbody :not(tr:first-child) td:first-child {
+  text-align: right;
+}
