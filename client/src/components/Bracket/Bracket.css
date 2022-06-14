@@ -1,0 +1,31 @@
+.Bracket {
+  position: absolute;
+  color: white;
+  background-color: var(--primary-md);
+  border-radius: 0.5em;
+}
+
+.Bracket td:nth-child(1) {
+  padding: 0.25em 0.5em;
+  border-radius: 0.5em;
+  width: 10.5em;
+  height: 2em;
+  overflow-x: hidden;
+  background-color: var(--primary);
+}
+
+.Bracket td:nth-child(2) {
+  width: 2.5em;
+  height: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Bracket button {
+  width: 3em;
+}
+
+.loser {
+  opacity: 0.5;
+}

@@ -3,16 +3,12 @@ import { NavigateFunction } from "react-router";
 import { Tournament, User } from "../models";
 import * as storage from "../utils/storage";
 
-const API = axios.create({
-  baseURL: "http://localhost:5000",
-  headers: {
-    authorization: `token ${storage.getToken()}`,
-  },
-});
+const API = axios.create({ baseURL: "http://localhost:5000" });
 
-axios.interceptors.request.use(
-  (config) => {
-    config.headers = { authorization: `token ${storage.getToken()}` };
+API.interceptors.request.use(
+  (req) => {
+    req.headers = { authorization: `token ${storage.getToken()}` };
+    return req;
   },
   (error) => {
     return Promise.reject(error);
@@ -28,6 +24,11 @@ export const updateTournament = (id: string, changes: any) => API.patch(`${tEndp
 export const deleteTournament = (id: string) => API.delete(`${tEndpoint}/${id}`);
 export const joinTournament = (id: string, player: string) => API.patch(`${tEndpoint}/addPlayer`, { id, player });
 export const unJoinTournament = (id: string, player: string) => API.patch(`${tEndpoint}/delPlayer`, { id, player });
+export const getTournamentTree = (id: string) => API.get(`${tEndpoint}/tree/${id}`);
+export const setScores = (id: string, gameIdx: string, setter: string, winner: string) =>
+  API.patch(`${tEndpoint}/${id}/${gameIdx}/scores`, { setter, winner });
+export const confirmScores = (id: string, gameIdx: string, value: boolean) =>
+  API.patch(`${tEndpoint}/${id}/${gameIdx}/scores/confirm`, { value });
 
 const uEndpoint = "/users";
 

@@ -1,38 +1,43 @@
 import mongoose from "mongoose";
 
 const gameSchema = mongoose.Schema({
-  player1: {
+  idx: {
     type: String,
     required: true,
   },
-  player2: {
+  playerL: {
     type: String,
     required: true,
   },
-  score1: {
-    type: Number,
+  playerR: {
+    type: String,
     required: true,
   },
-  score2: {
-    type: Number,
-    required: true,
+  setBy: {
+    type: String,
   },
   confirmed: {
     type: Boolean,
-    default: false,
   },
   winner: {
     type: String,
   },
-  level: {
+  next: {
+    type: String,
+  },
+  left: {
+    type: String,
+  },
+  right: {
+    type: String,
+  },
+  pos: {
     type: Number,
     required: true,
   },
-  parent1: {
-    type: String,
-  },
-  parent2: {
-    type: String,
+  level: {
+    type: Number,
+    required: true,
   },
 });
 
@@ -70,7 +75,7 @@ const tournamentSchema = mongoose.Schema({
     type: Date,
     required: true,
   },
-  rankedPlayers: {
+  players: {
     type: [String],
     default: [],
   },

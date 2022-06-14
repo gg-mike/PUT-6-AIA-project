@@ -15,6 +15,7 @@ app.use(cors());
 
 app.use("/tournaments", tournamentRoutes);
 app.use("/users", userRoutes);
+app.get("/", (req, res) => res.send("App is running"));
 
 const CONNECTION_URL = process.env.CONNECTION_URL;
 const PORT = process.env.PORT || 5000;

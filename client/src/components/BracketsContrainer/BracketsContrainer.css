@@ -1,0 +1,18 @@
+.BracketsContainer {
+  position: relative;
+  flex-shrink: 0;
+  margin: 2em;
+}
+
+.BracketsContainer-paths {
+  z-index: -10;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+}
+
+.BracketsContainer-path {
+  fill: none;
+  stroke: #000;
+  stroke-width: 0.2em;
+}

@@ -6,6 +6,9 @@ const UPDATE = 1004;
 const DELETE = 1005;
 const JOIN = 1006;
 const UN_JOIN = 1007;
+const TREE = 1008;
+const SET_SCORES = 1009;
+const CONF_SCORES = 1010;
 
 // USERS
 const EMAIL = 1503;

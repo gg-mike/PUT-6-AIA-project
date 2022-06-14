@@ -78,10 +78,16 @@
   color: var(--primary-lld);
 }
 
+.Single-games {
+  height: max-content;
+}
+
 .Single-sponsors {
   align-items: center;
+  height: min-content;
 }
 
 .Single-sponsors img {
   max-height: 20em;
+  max-width: 100%;
 }

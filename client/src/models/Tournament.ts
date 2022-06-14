@@ -10,7 +10,7 @@ export interface Tournament {
   location: string;
   participantsLimit: number;
   applicationDeadline: string;
-  rankedPlayers?: [string];
+  players: string[];
   sponsorsLogos: string;
-  games?: [Game];
+  games: Game[];
 }

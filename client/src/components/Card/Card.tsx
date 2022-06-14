@@ -15,10 +15,13 @@ const Card = ({ tournament, user }: CardProps) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user && tournament.rankedPlayers?.includes(user)) return setJoined(true);
-    if (tournament.rankedPlayers?.length === tournament.participantsLimit) setInfo("Full");
-    else if (CompDates(Date(), tournament.applicationDeadline) === 1) setInfo("Closed");
-    else if (CompDates(Date(), tournament.startDate) >= 0) setInfo("Started");
+    if (user && tournament.players.includes(user)) return setJoined(true);
+
+    if (tournament.games.length && !tournament.games.filter((elem) => elem.winner === "").length)
+      return setInfo("Ended");
+    if (CompDates(Date(), tournament.startDate) >= 0) return setInfo("Started");
+    if (tournament.players.length === tournament.participantsLimit) return setInfo("Full");
+    if (CompDates(Date(), tournament.applicationDeadline) === 1) return setInfo("Closed");
   }, []);
 
   return (
@@ -51,7 +54,7 @@ const Card = ({ tournament, user }: CardProps) => {
           <tr>
             <td>Participants</td>
             <td>
-              {tournament.rankedPlayers ? tournament.rankedPlayers.length : 0}/{tournament.participantsLimit}
+              {tournament.players.length}/{tournament.participantsLimit}
             </td>
           </tr>
         </tbody>

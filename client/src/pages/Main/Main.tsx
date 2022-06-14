@@ -27,7 +27,7 @@ const Main = () => {
 
   const updateTournaments = () => {
     const filtered = tournaments.filter((elem) => search === "" || elem.name.toLowerCase().includes(search));
-    const upcomming = filtered.filter((elem) => !isUpcomming || elem.rankedPlayers?.includes(user!._id));
+    const upcomming = filtered.filter((elem) => !isUpcomming || elem.players.includes(user!._id));
     const sorted = upcomming.sort((a, b) => Number(a.name > b.name));
     setChunks(chunk(sorted));
   };

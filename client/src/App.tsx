@@ -6,7 +6,7 @@ import { Create, Edit, Single } from "./pages/TournamentPages";
 
 import { ConfirmEmail, ForgotPassword, ResetPassword, SignIn, SignUp } from "./pages/UserPages";
 
-import { NotFound, Post, ServerSideError } from "./pages/Other";
+import { NotFound, Post, ServerSideError, Test } from "./pages/Other";
 
 const App = () => {
   return (
@@ -27,6 +27,7 @@ const App = () => {
 
           <Route path="/post/:nextPage" element={<Post />} />
           <Route path="/server-side-error/:code" element={<ServerSideError />} />
+          <Route path="/test" element={<Test />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>

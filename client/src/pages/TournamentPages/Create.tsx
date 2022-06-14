@@ -9,13 +9,14 @@ import DatePicker from "../../components/Input/DatePicker";
 import FilePicker from "../../components/Input/FilePicker";
 import { IMAGES } from "../../components/Input/FilePicker";
 import Navbar from "../../components/Navbar";
+import { Tournament } from "../../models";
 import { CompDates } from "../../utils";
 import * as storage from "../../utils/storage";
 
 export const Create = () => {
   const [user, setUser] = useState(storage.getUserProfile());
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Tournament>({
     name: "",
     discipline: "",
     organizer: "",
@@ -25,6 +26,8 @@ export const Create = () => {
     location: "",
     participantsLimit: 0,
     sponsorsLogos: "",
+    players: [],
+    games: [],
   });
   const navigate = useNavigate();
 

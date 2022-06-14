@@ -1,11 +1,13 @@
 export interface Game {
-  player1: string;
-  player2: string;
-  score1: number;
-  score2: number;
+  idx: string;
+  playerL: string;
+  playerR: string;
+  setBy?: string;
   confirmed?: boolean;
   winner: string;
+  next: string | null;
+  left: string | null;
+  right: string | null;
+  pos: number;
   level: number;
-  parent1?: string;
-  parent2?: string;
 }

@@ -6,7 +6,7 @@ export interface UserProfile {
   token: string;
 }
 
-const storage = localStorage;
+const storage = sessionStorage;
 
 const set = (key: string, value: string) => storage.setItem(key, value);
 const clr = (key: string) => storage.removeItem(key);

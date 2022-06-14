@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import * as api from "../../api";
+import BracketsContrainer from "../../components/BracketsContrainer";
 import Dropdown from "../../components/Dropdown";
 import ErrorMessage from "../../components/ErrorMessage";
 import Navbar from "../../components/Navbar";
@@ -18,6 +19,8 @@ export const Single = () => {
   const [isJoin, setJoin] = useState<boolean | null>(false);
   const [isEdit, setEdit] = useState(false);
   const [isPopup, setPopup] = useState(false);
+  const [isStarted, setStarted] = useState(false);
+  const [isAfterDeadline, setAfterDeadline] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -45,13 +48,16 @@ export const Single = () => {
   useEffect(() => {
     if (!tournament) return;
 
+    if (CompDates(Date(), tournament.startDate) >= 0) setStarted(true);
+    if (CompDates(Date(), tournament.applicationDeadline) >= 0) setAfterDeadline(true);
+
     if (
       CompDates(Date(), tournament.applicationDeadline) === 1 ||
-      tournament.rankedPlayers?.length === tournament.participantsLimit
+      tournament.players.length === tournament.participantsLimit
     )
       setJoin(null);
     else {
-      if (user && tournament.rankedPlayers?.includes(user._id)) setJoin(false);
+      if (user && tournament.players.includes(user._id)) setJoin(false);
       else setJoin(true);
     }
     if (user && tournament?.creator === user._id && CompDates(Date(), tournament.startDate) === -1) setEdit(true);
@@ -61,6 +67,7 @@ export const Single = () => {
   const editHandler = () => navigate(`/tournament/edit/${tournament!._id!}`);
 
   const joinHandler = async () => {
+    if (!user) navigate(`/sign-in/_tournament_${id}`);
     try {
       await api.joinTournament(tournament!._id!, user!._id);
       updateTournament();
@@ -170,12 +177,23 @@ export const Single = () => {
             <div className="Single-detail">
               <h3>Participants</h3>
               <h3>
-                {tournament?.rankedPlayers ? tournament.rankedPlayers.length : 0}/{tournament?.participantsLimit}
+                {tournament?.players.length}/{tournament?.participantsLimit}
               </h3>
             </div>
           </div>
         </div>
-        <div className="Single-part Single-games">GAMES</div>
+        {isStarted && tournament!.players.length < 2 && (
+          <div className="Single-part Single-games">
+            <h3 style={{ color: "red", width: "100%", textAlign: "center" }}>
+              Not enough players to start competition
+            </h3>
+          </div>
+        )}
+        {isAfterDeadline && tournament!.players.length >= 2 && (
+          <div className="Single-part Single-games">
+            <BracketsContrainer tournamentId={tournament?._id ? tournament._id! : ""} games={tournament?.games} />
+          </div>
+        )}
         {tournament?.sponsorsLogos && (
           <div className="Single-part Single-sponsors fc">
             <img src={tournament.sponsorsLogos} alt="Sponsors logos" />
