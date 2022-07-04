@@ -6,6 +6,7 @@ import Dropdown from "../../components/Dropdown";
 import Navbar from "../../components/Navbar";
 import Search from "../../components/Search";
 import { Tournament } from "../../models";
+import { CompDates } from "../../utils";
 import * as storage from "../../utils/storage";
 import "./Main.css";
 
@@ -27,7 +28,9 @@ const Main = () => {
 
   const updateTournaments = () => {
     const filtered = tournaments.filter((elem) => search === "" || elem.name.toLowerCase().includes(search));
-    const upcomming = filtered.filter((elem) => !isUpcomming || elem.players.includes(user!._id));
+    const upcomming = filtered.filter(
+      (elem) => !isUpcomming || (elem.players.includes(user!._id) && CompDates(Date(), elem.startDate) < 0)
+    );
     const sorted = upcomming.sort((a, b) => Number(a.name > b.name));
     setChunks(chunk(sorted));
   };

@@ -24,7 +24,10 @@ const sendConfirmEmail = (to, subject, text, res) => {
   let mailOptions = { from: process.env.MAIL, to, subject, text };
 
   transporter.sendMail(mailOptions, (error, info) => {
-    if (error) return res.status(503).json({ message: "Couldn't send mail", internalCode: codes.EMAIL });
+    if (error) {
+      console.error(error);
+      return res.status(503).json({ message: "Couldn't send mail", internalCode: codes.EMAIL });
+    }
     return res.status(200).json({ message: `Email sent: ${info.response}` });
   });
 };
